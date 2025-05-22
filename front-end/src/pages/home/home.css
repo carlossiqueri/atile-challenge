@@ -1,0 +1,34 @@
+.home-container {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    background-color: #ffffff;
+
+    .home-content {
+        margin-top: 100px;
+        width: 700px;
+        height: 400px;
+        /* background-color: #FFC42E; */
+        background-color: #d4d4d4;
+
+
+        h1 {
+            color: #70418E;
+        }
+
+        button {
+            cursor: pointer;
+            width: 120px;
+            height: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            background-color: #FFC42E;
+            color: #70418E;
+            font-size: 12px;
+            font-weight: bold;
+        }
+    }
+}
