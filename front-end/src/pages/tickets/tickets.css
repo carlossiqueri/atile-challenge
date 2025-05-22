@@ -1,31 +1,127 @@
-.tickets-container{
-     width: 100vw;
-    height: 100vh;
+ .tickets-container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tickets-list {
+    list-style: none;
+    padding: 0;
+}
+
+.ticket-item {
+    background: #f9f9f9;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.ticket-field {
+    margin-bottom: 10px;
+}
+
+.ticket-field p {
+    margin: 5px 0;
+}
+
+.ticket-actions {
     display: flex;
-    justify-content: center;
-    background-color: #ffffff;
+    gap: 10px;
+    margin-top: 15px;
+}
 
-    .tickets-content{
-        padding: 1rem;
-        margin-top: 100px;
-        width: 700px;
-        height: 400px;
-        /* background-color: #FFC42E; */
-        background-color: #d4d4d4;
+.edit-button, .delete-button, .confirm-button, .cancel-button {
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.edit-button:hover {
+    background-color: #45a049;
+}
+
+.edit-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.delete-button {
+    background-color: #f44336;
+    color: white;
+}
+
+.delete-button:hover {
+    background-color: #d32f2f;
+}
+
+.delete-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+
+.edit-form {
+    margin-top: 20px;
+    padding: 15px;
+    background: #fff;
+    border-radius: 8px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.form-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.confirm-button {
+    background-color: #2196F3;
+    color: white;
+}
+
+.cancel-button {
+    background-color: #ff9800;
+    color: white;
+}
 
 
-        h1 {
-            color: #70418E;
-        }
-        
-        .ticket-field{
-            display: flex;
-            justify-content: center;
-            padding: 2px 0px 2px 0px;
-            gap: 5px;
-            margin-top: 10px;
-            border-radius: 8px;
-            background-color: #fefefe;
-        }
-    }
+.home-button {
+    padding: 10px 20px;
+    background-color: #2196F3;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 20px;
 }
