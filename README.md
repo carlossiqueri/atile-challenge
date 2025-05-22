@@ -82,7 +82,7 @@ cd api
 # No Windows, use mvnw.cmd; no Linux/macOS, use mvn
 # caso não tenha o maven instalado no linux, use sudo apt install maven
 # no linux:
-mvnclean package
+mvn clean package
 # ou no Windows:
 mvnw.cmd clean package
 
