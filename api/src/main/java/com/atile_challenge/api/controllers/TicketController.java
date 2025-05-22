@@ -1,6 +1,8 @@
 package com.atile_challenge.api.controllers;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -35,10 +37,15 @@ public class TicketController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> createTicket(@RequestBody @Valid TicketCreateDTO dto){
+    public ResponseEntity<Map<String, String>> createTicket(@RequestBody @Valid TicketCreateDTO dto){
         ticketService.createTicket(dto);
+        
+        Map<String, String> response = new HashMap<>();
 
-        return ResponseEntity.created(null).build();
+        response.put("message", "Ticket created successfully.");
+
+
+        return ResponseEntity.created(null).body(response);
     }
 
     @GetMapping
@@ -56,16 +63,20 @@ public class TicketController {
     }
 
     @PutMapping("/{id}")
-    public String updateTicket(@PathVariable Long id, @RequestBody @Valid TicketUpdateDTO dto) {
-        //TODO: process PUT request
+    public ResponseEntity<TicketResponseDTO> updateTicket(@PathVariable Long id, @RequestBody @Valid TicketUpdateDTO dto) {
+        TicketResponseDTO updatedTicket = ticketService.updateTicket(id, dto);
         
-        return new String();
+        return ResponseEntity.ok().body(updatedTicket);
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<String> deleteTicket(@PathVariable Long id) {
-        // Delete logic here
-        return ResponseEntity.ok("Ticket with ID " + id + " deleted successfully");
+    public ResponseEntity<Map<String, String>> deleteTicket(@PathVariable Long id) {
+        ticketService.deleteTicket(id);
+
+        Map<String, String> response = new HashMap<>();
+        
+        response.put("message", "Ticket with ID: " + id + " deleted successfully");
+        return ResponseEntity.ok().body(response);
     }
 
 }

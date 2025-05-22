@@ -18,4 +18,11 @@ public class GlobalExceptionHandler {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(errorDetail);
     }
 
+    @ExceptionHandler({ArgumentException.class})
+    public ResponseEntity<Map<String, String>> handleAgurmentException(ArgumentException exception){
+        Map<String, String> errorDetail = new HashMap<>();
+        errorDetail.put("message", exception.getMessage());
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(errorDetail);
+    }
+
 }
