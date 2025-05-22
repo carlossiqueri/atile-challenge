@@ -27,19 +27,17 @@ function CreateTicket() {
         setIsSubmitting(true)
         setSubmitMessage("")
 
-        axios.post("http://localhost:8080/tickets", formData)
-            .then((res) => {
-                console.log("Success: ", res.data)
-                setSubmitMessage("Ticket criado com sucesso.")
-                setFormData({ title: "", description: "" })
-            })
-            .catch((err) => {
-                console.error("Error:", err)
-                setSubmitMessage("Erro ao criar ticket. Tente novamente.")
-            })
-            .finally(() => {
-                setIsSubmitting(false)
-            })
+        try {
+            await axios.post("http://localhost:8080/tickets", formData);
+
+            setSubmitMessage("Ticket criado com sucesso!");
+            setFormData({ titulo: "", descricao: "" });
+        } catch (error) {
+            console.error("Error:", error);
+            setSubmitMessage("Erro ao criar ticket. Tente novamente.");
+        } finally {
+            setIsSubmitting(false);
+        }
     }
 
 
