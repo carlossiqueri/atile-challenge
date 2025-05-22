@@ -48,8 +48,10 @@ public class TicketController {
     }
 
     @GetMapping("/{id}")
-    public String listTicketById(@RequestParam String param) {
-        return new String();
+    public TicketResponseDTO listTicketById(@PathVariable Long id) {
+        TicketResponseDTO ticketById = ticketService.listTicketById(id);
+
+        return ticketById;
     }
 
     @PutMapping("/{id}")

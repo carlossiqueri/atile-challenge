@@ -3,6 +3,7 @@ package com.atile_challenge.api.services.ticket;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 import org.springframework.stereotype.Service;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Service;
 import com.atile_challenge.api.dtos.ticket.TicketCreateDTO;
 import com.atile_challenge.api.dtos.ticket.TicketMapper;
 import com.atile_challenge.api.dtos.ticket.TicketResponseDTO;
+import com.atile_challenge.api.exceptions.ResourceNotFoundException;
 import com.atile_challenge.api.models.ticket.TicketModel;
 import com.atile_challenge.api.models.ticket.TicketStatus;
 
@@ -35,13 +37,18 @@ public class TicketService {
 
     }
 
-
     public List<TicketResponseDTO> listTickets(){
         return tickets;
     }
 
-    public void listTicketById(){
+    public TicketResponseDTO listTicketById(Long id){
 
+        TicketResponseDTO ticketById = tickets.stream()
+            .filter(ticket -> ticket.getId().equals(id))
+            .findFirst()
+            .orElseThrow(() -> new ResourceNotFoundException(String.format("Ticket with id %d not found.", id)));
+
+            return ticketById;
     }
 
     public void updateTicket(){
