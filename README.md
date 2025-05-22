@@ -79,10 +79,12 @@ Abra outro terminal para o backend.
 cd api
 
 # Compile e empacote a aplicação Spring Boot
-# No Windows, use mvnw.cmd; no Linux/macOS, use ./mvnw
-./mvnw clean package
+# No Windows, use mvnw.cmd; no Linux/macOS, use mvn
+# caso não tenha o maven instalado no linux, use sudo apt install maven
+# no linux:
+mvnclean package
 # ou no Windows:
-# mvnw.cmd clean package
+mvnw.cmd clean package
 
 # Navegue até o diretório onde o JAR foi gerado
 cd target
