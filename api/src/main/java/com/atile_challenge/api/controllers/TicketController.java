@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.atile_challenge.api.dtos.ticket.TicketCreateDTO;
 import com.atile_challenge.api.dtos.ticket.TicketResponseDTO;
+import com.atile_challenge.api.dtos.ticket.TicketUpdateDTO;
 import com.atile_challenge.api.services.ticket.TicketService;
 
 import jakarta.validation.Valid;
@@ -48,17 +49,17 @@ public class TicketController {
     }
 
     @GetMapping("/{id}")
-    public TicketResponseDTO listTicketById(@PathVariable Long id) {
+    public ResponseEntity<TicketResponseDTO> listTicketById(@PathVariable Long id) {
         TicketResponseDTO ticketById = ticketService.listTicketById(id);
 
-        return ticketById;
+        return ResponseEntity.ok().body(ticketById);
     }
 
     @PutMapping("/{id}")
-    public String updateTicket(@PathVariable String id, @RequestBody String entity) {
+    public String updateTicket(@PathVariable Long id, @RequestBody @Valid TicketUpdateDTO dto) {
         //TODO: process PUT request
         
-        return entity;
+        return new String();
     }
 
     @DeleteMapping("/{id}")
