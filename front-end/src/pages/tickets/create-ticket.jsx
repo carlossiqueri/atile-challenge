@@ -31,7 +31,7 @@ function CreateTicket() {
             await axios.post("http://localhost:8080/tickets", formData);
 
             setSubmitMessage("Ticket criado com sucesso!");
-            setFormData({ titulo: "", descricao: "" });
+            setFormData({ title: "", description: "" });
         } catch (error) {
             console.error("Error:", error);
             setSubmitMessage("Erro ao criar ticket. Tente novamente.");
