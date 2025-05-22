@@ -12,8 +12,8 @@ function HomePage() {
         <div className="home-container">
             <div className="home-content">
                 <h1>Atile Challenge</h1>
-                <button className='get-tickets' onClick={() => navigate("/tickets")}>My Tickets</button>
-                <button className='create-ticket' onClick={() => navigate("/tickets/create")}>Create Ticket</button>
+                <button className='get-tickets-btn' onClick={() => navigate("/tickets")}>My Tickets</button>
+                <button className='create-ticket-btn' onClick={() => navigate("/tickets/create")}>Create Ticket</button>
             </div>
         </div>
     )

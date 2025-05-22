@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import './tickets.css'
+import './create-ticket.css'
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
@@ -45,8 +45,8 @@ function CreateTicket() {
 
 
     return (
-        <div className="tickets-container">
-            <div className="tickets-content">
+        <div className="create-tickets-container">
+            <div className="create-tickets-content">
                 <div className="create-ticket">
                     <form onSubmit={handleSubmit}>
                         <div className="form-group">
@@ -86,7 +86,7 @@ function CreateTicket() {
                         )}
                     </form>
                 </div>
-                <button onClick={() => navigate("/")}>HomePage</button>
+                <button className='home-btn' onClick={() => navigate("/")}>HomePage</button>
             </div>
         </div>
     )
