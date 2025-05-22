@@ -1,5 +1,7 @@
 package com.atile_challenge.api.controllers;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -7,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.atile_challenge.api.dtos.ticket.TicketCreateDTO;
+import com.atile_challenge.api.dtos.ticket.TicketResponseDTO;
 import com.atile_challenge.api.services.ticket.TicketService;
 
 import jakarta.validation.Valid;
@@ -38,8 +41,10 @@ public class TicketController {
     }
 
     @GetMapping
-    public String listTickets(@RequestParam String param) {
-        return new String();
+    public ResponseEntity<List<TicketResponseDTO>> listTickets() {
+        List<TicketResponseDTO> tickets = ticketService.listTickets();
+
+        return ResponseEntity.ok().body(tickets);
     }
 
     @GetMapping("/{id}")

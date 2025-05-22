@@ -36,8 +36,8 @@ public class TicketService {
     }
 
 
-    public void listTickets(){
-
+    public List<TicketResponseDTO> listTickets(){
+        return tickets;
     }
 
     public void listTicketById(){
